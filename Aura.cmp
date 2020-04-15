@@ -1,0 +1,18 @@
+<aura:component controller="ChildAuditorCtrl"
+                implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="childs" type="List" />
+    
+    <div style="overflow-y:scroll; height:210px;">
+        <table style="table-layout: fixed;">
+            <tr>
+                <aura:iteration items="{!v.childs}" var="child">
+                    {!child.name} --- {!child.numberOfRecords} <br/>
+                </aura:iteration>
+            </tr>
+        </table>
+        <br/>
+        <lightning:button variant="brand" label="Refresh" onclick="{!c.handleClick}" />
+    </div>
+</aura:component>
